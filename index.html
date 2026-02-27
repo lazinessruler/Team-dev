@@ -1,160 +1,325 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TeamDev | Precision Automation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root { --accent: #3b82f6; --bg: #03040a; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: #f8fafc; 
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Premium Glass Effect */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-        }
-
-        /* Modern Hover Lift */
-        .bento-card {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-        }
-        .bento-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px);
-            background: rgba(59, 130, 246, 0.03);
-            box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.2);
-        }
-
-        /* Subtle Animated Background */
-        .grid-overlay {
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
-            background-size: 30px 30px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>TeamDev · Flexyy edition</title>
+  <!-- Tailwind + Flexyy touch -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <!-- Lucide for clean icons (Flexyy style uses minimal iconography) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    body { background: #0a0c12; color: #edf2f7; -webkit-tap-highlight-color: transparent; }
+    /* Flexyy signature: soft glass + subtle gradients, no heavy comments */
+    .glass-strong {
+      background: rgba(18, 22, 30, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .glass-card {
+      background: rgba(22, 28, 38, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .text-grad {
+      background: linear-gradient(135deg, #b388ff, #70b8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn-flexyy {
+      background: linear-gradient(145deg, #1f2a3f, #111827);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.15s ease;
+    }
+    .btn-flexyy:hover {
+      background: #26344f;
+      border-color: rgba(130, 170, 255, 0.25);
+      transform: scale(0.98);
+    }
+    .stat-tile {
+      background: rgba(10, 14, 23, 0.6);
+      border: 1px solid rgba(255,255,255,0.02);
+      border-radius: 28px;
+      backdrop-filter: blur(4px);
+    }
+    /* smooth mobile tap */
+    .no-tap-highlight {
+      -webkit-tap-highlight-color: transparent;
+    }
+    code {
+      background: #1a1f2c;
+      padding: 0.2rem 0.4rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      border: 1px solid #2b3245;
+      color: #b2c9ff;
+    }
+    /* flexyy special – very subtle glow */
+    .glow-border {
+      box-shadow: 0 0 0 1px rgba(120, 160, 255, 0.1);
+    }
+  </style>
 </head>
-<body class="grid-overlay pb-20">
+<body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-50 p-4">
-        <div class="max-w-4xl mx-auto glass-panel px-6 py-3 flex justify-between items-center bg-black/40">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-lg tracking-tighter uppercase">TeamDev</span>
-            </div>
-            <a href="https://t.me/TEAM_X_OG" class="text-[10px] font-black tracking-widest text-blue-500 uppercase border border-blue-500/30 px-3 py-1.5 rounded-full">Community</a>
+  <!-- fixed navigation · Flexyy minimal -->
+  <nav class="fixed top-0 w-full z-50 glass-strong border-b border-white/[0.02] px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- left logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-indigo-600/20 flex items-center justify-center border border-indigo-500/30">
+          <i data-lucide="zap" class="w-4 h-4 text-indigo-400 fill-indigo-400/30"></i>
         </div>
-    </nav>
+        <span class="text-base font-semibold tracking-tight text-white">TeamDev</span>
+        <span class="hidden xs:inline-block text-[10px] font-medium bg-white/5 px-2 py-0.5 rounded-full border border-white/5 text-slate-400">@TEAM_X_OG</span>
+      </div>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32">
-        
-        <section class="text-center mb-20">
-            <div class="inline-flex items-center gap-2 px-3 py-1 glass-panel rounded-full mb-6">
-                <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]"></span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">All Nodes Operational</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
-                Beyond <br> <span class="gradient-text">Automation</span>
-            </h1>
-            <p class="text-slate-500 text-sm md:text-base max-w-lg mx-auto mb-10 leading-relaxed font-medium">
-                Developing next-gen Telegram bots with extreme reliability and lightning fast response times.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#bots" class="px-10 py-4 bg-white text-black font-bold rounded-2xl flex items-center justify-center gap-2 hover:scale-105 transition-all">
-                    SOLUTIONS <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-        </section>
+      <!-- desktop links (hidden on mobile) -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#home" class="hover:text-white transition">Home</a>
+        <a href="#bots" class="hover:text-white transition">Bots</a>
+        <a href="#docs" class="hover:text-white transition">Docs</a>
+        <a href="#about" class="hover:text-white transition">About</a>
+      </div>
 
-        <section id="bots" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
-            <div class="glass-panel p-8 bento-card relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition">
-                    <i data-lucide="music" class="w-24 h-24"></i>
-                </div>
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 mb-8 border border-blue-500/20">
-                    <i data-lucide="play"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">AudioStream Pro</h3>
-                <p class="text-slate-400 text-xs mb-6">Crystal clear 320kbps audio streaming for voice chats. No lag, high fidelity.</p>
-                <a href="https://t.me/TeamDevMusicBot" class="text-[10px] font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">Deploy <i data-lucide="external-link" class="w-3 h-3"></i></a>
-            </div>
+      <!-- right: hub + mobile trigger (flexyy) -->
+      <div class="flex items-center gap-2">
+        <a href="https://t.me/TEAM_X_OG" target="_blank" class="text-xs font-semibold px-4 py-1.5 btn-flexyy rounded-full text-indigo-200 tracking-wide border border-indigo-500/20">HUB</a>
+        <!-- mobile menu button (flexyy style) -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl btn-flexyy border border-white/5" onclick="document.getElementById('mobileDrawer').classList.toggle('hidden')">
+          <i data-lucide="menu" class="w-5 h-5 text-slate-300"></i>
+        </button>
+      </div>
+    </div>
 
-            <div class="glass-panel p-8 bento-card relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition">
-                    <i data-lucide="hard-drive" class="w-24 h-24"></i>
-                </div>
-                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 mb-8 border border-purple-500/20">
-                    <i data-lucide="link"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2 uppercase tracking-tight">FileToLink V3</h3>
-                <p class="text-slate-400 text-xs mb-6">Convert any Telegram file into high-speed permanent streaming links instantly.</p>
-                <a href="https://t.me/FileToLinkV3_Bot" class="text-[10px] font-black text-purple-500 uppercase tracking-widest flex items-center gap-2">Generate <i data-lucide="external-link" class="w-3 h-3"></i></a>
-            </div>
-        </section>
+    <!-- mobile drawer (hidden by default) -->
+    <div id="mobileDrawer" class="hidden md:hidden mt-3 p-4 glass-strong rounded-3xl border border-white/5 flex flex-col gap-3 text-base backdrop-blur-xl">
+      <a href="#home" class="py-2.5 px-3 rounded-xl bg-white/5 text-sm" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Home</a>
+      <a href="#bots" class="py-2.5 px-3 rounded-xl bg-white/5 text-sm" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Bots</a>
+      <a href="#docs" class="py-2.5 px-3 rounded-xl bg-white/5 text-sm" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Docs</a>
+      <a href="#about" class="py-2.5 px-3 rounded-xl bg-white/5 text-sm" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">About</a>
+    </div>
+  </nav>
 
-        <section class="mb-20">
-            <div class="glass-panel p-[2px] bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-blue-500/20 rounded-[26px]">
-                <div class="bg-[#03040a] rounded-[24px] p-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                        <div class="text-center md:text-left">
-                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">Core Leadership</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-[9px] font-black text-blue-500 uppercase mb-1">Lead Developer</p>
-                                    <a href="https://t.me/MR_ARMAN_08" class="text-2xl font-bold hover:text-white transition">@MR_ARMAN_08</a>
-                                </div>
-                                <div>
-                                    <p class="text-[9px] font-black text-purple-500 uppercase mb-1">Design Architect</p>
-                                    <a href="https://t.me/flexyy" class="text-2xl font-bold hover:text-white transition">@flexyy</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="text-center px-4 py-2 bg-white/5 rounded-2xl border border-white/5">
-                                <span class="block text-xl font-bold">50K+</span>
-                                <span class="text-[8px] text-slate-500 uppercase font-bold tracking-widest">Users</span>
-                            </div>
-                            <div class="text-center px-4 py-2 bg-white/5 rounded-2xl border border-white/5">
-                                <span class="block text-xl font-bold">24/7</span>
-                                <span class="text-[8px] text-slate-500 uppercase font-bold tracking-widest">Uptime</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- spacer for fixed nav -->
+  <div class="h-16"></div>
 
-    </main>
+  <main class="max-w-6xl mx-auto px-4 py-6 space-y-16">
 
-    <footer class="py-12 border-t border-white/5 text-center px-6">
-        <p class="text-[9px] font-bold text-slate-700 uppercase tracking-[0.4em] mb-6">Built for TeamDev Community • 2026</p>
-        <div class="flex justify-center gap-8">
-            <a href="https://t.me/TEAM_X_OG" class="text-slate-500 hover:text-blue-500 transition"><i data-lucide="send" class="w-5 h-5"></i></a>
-            <a href="https://t.me/MR_ARMAN_08" class="text-slate-500 hover:text-blue-500 transition"><i data-lucide="layers" class="w-5 h-5"></i></a>
+    <!-- HERO – Flexyy minimal but bold -->
+    <section id="home" class="relative pt-6 md:pt-12">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_30%,#1e2b4a,transparent_70%)] opacity-30"></div>
+      <div class="flex flex-col items-center text-center">
+        <div class="inline-flex items-center gap-2 bg-white/[0.02] border border-white/5 px-3 py-1.5 rounded-full mb-5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400/80 animate-pulse"></span>
+          <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">custom dev open</span>
         </div>
-    </footer>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Premium Telegram <br><span class="text-grad">bots · scaled</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl mt-4 text-sm sm:text-base/relaxed">
+          Music, file hosting & economy bots — 99.9% uptime · 50k+ active users · built by Flexyy standard.
+        </p>
+        <!-- lead developer badge (flexyy) -->
+        <a href="https://t.me/MR_ARMAN_08" target="_blank" class="mt-6 flex items-center gap-3 glass-card pl-2 pr-5 py-1.5 rounded-full border border-white/5 hover:bg-white/[0.03] transition">
+          <div class="w-8 h-8 rounded-full bg-indigo-600/20 flex items-center justify-center"><span class="text-indigo-300 text-lg">⌘</span></div>
+          <div class="text-left">
+            <div class="text-[10px] font-medium text-slate-500">lead dev</div>
+            <div class="text-xs font-semibold">@MR_ARMAN_08</div>
+          </div>
+        </a>
 
-    <script>
-        lucide.createIcons();
-    </script>
+        <!-- CTA buttons (mobile stacked) -->
+        <div class="flex flex-col xs:flex-row items-center justify-center gap-3 w-full mt-10">
+          <a href="#bots" class="w-full xs:w-auto btn-flexyy text-white px-8 py-3.5 rounded-2xl flex items-center justify-center gap-2 border border-white/10 font-medium"><i data-lucide="bot" class="w-5 h-5"></i> Explore bots</a>
+          <a href="#docs" class="w-full xs:w-auto glass-card px-8 py-3.5 rounded-2xl flex items-center justify-center gap-2 border border-white/5 font-medium hover:bg-white/5"><i data-lucide="book" class="w-5 h-5"></i> Docs</a>
+        </div>
+
+        <!-- stats grid (2x2 on smallest, 4 on md) flexyy tiles -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 w-full mt-14">
+          <div class="stat-tile p-4 text-center"><span class="text-xl font-bold text-white">50k+</span><span class="block text-[10px] font-medium text-slate-400 mt-1">users</span></div>
+          <div class="stat-tile p-4 text-center"><span class="text-xl font-bold text-white">99.9%</span><span class="block text-[10px] font-medium text-slate-400 mt-1">uptime</span></div>
+          <div class="stat-tile p-4 text-center"><span class="text-xl font-bold text-white">3</span><span class="block text-[10px] font-medium text-slate-400 mt-1">premium bots</span></div>
+          <div class="stat-tile p-4 text-center"><span class="text-xl font-bold text-white">24/7</span><span class="block text-[10px] font-medium text-slate-400 mt-1">support</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTS – flexyy cards with icons (lucide) & clean border -->
+    <section id="bots" class="scroll-mt-20">
+      <div class="text-left mb-8">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Featured bots</h2>
+        <p class="text-slate-500 text-sm mt-1">production-ready · zero bloat</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- music bot -->
+        <div class="glass-card p-6 rounded-3xl border border-white/[0.02] hover:border-indigo-500/20 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center"><i data-lucide="music-4" class="w-5 h-5 text-indigo-400"></i></div>
+            <span class="text-xs font-semibold text-indigo-400/90 uppercase tracking-wider">popular</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Music bot</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">High‑quality voice streaming, playlist queue, YouTube/Spotify.</p>
+          <div class="flex flex-wrap gap-1.5 my-5">
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">voice chat</span>
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">queue</span>
+          </div>
+          <a href="https://t.me/TeamDevMusicBot" target="_blank" class="w-full inline-flex justify-center items-center gap-1.5 py-2.5 text-sm bg-indigo-600/20 border border-indigo-500/30 rounded-xl font-medium hover:bg-indigo-600/30 transition">open <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+        <!-- file to link -->
+        <div class="glass-card p-6 rounded-3xl border border-white/[0.02] hover:border-indigo-500/20 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center"><i data-lucide="folder" class="w-5 h-5 text-indigo-400"></i></div>
+            <span class="text-xs font-semibold text-indigo-400/90 uppercase tracking-wider">instant</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">FileToLink</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Permanent CDN links, streaming, no size caps.</p>
+          <div class="flex flex-wrap gap-1.5 my-5">
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">direct link</span>
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">stream</span>
+          </div>
+          <a href="https://t.me/FileToLinkV3_Bot" target="_blank" class="w-full inline-flex justify-center items-center gap-1.5 py-2.5 text-sm bg-indigo-600/20 border border-indigo-500/30 rounded-xl font-medium hover:bg-indigo-600/30 transition">open <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+        <!-- crimezone economy -->
+        <div class="glass-card p-6 rounded-3xl border border-white/[0.02] hover:border-indigo-500/20 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center"><i data-lucide="landmark" class="w-5 h-5 text-indigo-400"></i></div>
+            <span class="text-xs font-semibold text-indigo-400/90 uppercase tracking-wider">rpg</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">CrimeZone</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">Economy, heists, leaderboards & empire building.</p>
+          <div class="flex flex-wrap gap-1.5 my-5">
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">trading</span>
+            <span class="bg-white/5 px-2 py-1 text-[10px] rounded-full border border-white/5">gangs</span>
+          </div>
+          <a href="https://t.me/CrimeZone2_Bot" target="_blank" class="w-full inline-flex justify-center items-center gap-1.5 py-2.5 text-sm bg-indigo-600/20 border border-indigo-500/30 rounded-xl font-medium hover:bg-indigo-600/30 transition">open <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCS – minimal, code snippets flexyy style -->
+    <section id="docs" class="scroll-mt-20">
+      <div class="text-left mb-8">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">quick docs</h2>
+        <p class="text-slate-500 text-sm">tap commands to copy</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="glass-card p-6 rounded-3xl border border-white/5">
+          <div class="flex items-center gap-2 mb-4"><i data-lucide="music" class="w-5 h-5 text-indigo-400"></i><span class="font-medium">music</span></div>
+          <div class="space-y-2 text-xs">
+            <code onclick="navigator.clipboard?.writeText('/play [song]')" class="block cursor-pointer">/play [song]</code>
+            <code onclick="navigator.clipboard?.writeText('/pause')" class="inline-block mr-1 cursor-pointer">/pause</code>
+            <code onclick="navigator.clipboard?.writeText('/skip')" class="inline-block cursor-pointer">/skip</code>
+          </div>
+        </div>
+        <div class="glass-card p-6 rounded-3xl border border-white/5">
+          <div class="flex items-center gap-2 mb-4"><i data-lucide="link" class="w-5 h-5 text-indigo-400"></i><span class="font-medium">file2link</span></div>
+          <div class="space-y-2 text-xs">
+            <div><code>send any file</code> → instant link</div>
+            <div>supports video/audio/pdf</div>
+          </div>
+        </div>
+        <div class="glass-card p-6 rounded-3xl border border-white/5">
+          <div class="flex items-center gap-2 mb-4"><i data-lucide="dollar-sign" class="w-5 h-5 text-indigo-400"></i><span class="font-medium">crimezone</span></div>
+          <div class="space-y-2 text-xs">
+            <code onclick="navigator.clipboard?.writeText('/crime')" class="inline-block mr-1 cursor-pointer">/crime</code>
+            <code onclick="navigator.clipboard?.writeText('/work')" class="inline-block cursor-pointer">/work</code>
+            <div><code>/balance</code> <code>/leaderboard</code></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / DEV + tech stack (flexyy dense) -->
+    <section id="about" class="scroll-mt-20">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- left: dev intro + stats -->
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight mb-4">⌨️ dev / stack</h2>
+          <div class="glass-card p-6 rounded-3xl border border-white/5 mb-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 flex items-center justify-center text-2xl"><span>⚡</span></div>
+            <div>
+              <span class="font-semibold text-base">@MR_ARMAN_08</span>
+              <span class="block text-[11px] text-indigo-400 font-medium">lead developer · 3+ years</span>
+            </div>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Python, Pyrogram, distributed systems architect. 1M+ daily requests, 50k+ users across three high‑load bots.</p>
+          <div class="grid grid-cols-3 gap-2 text-center mb-6">
+            <div class="bg-white/5 p-3 rounded-2xl"><span class="block text-lg font-semibold">1M+</span><span class="text-[9px] text-slate-500">requests/day</span></div>
+            <div class="bg-white/5 p-3 rounded-2xl"><span class="block text-lg font-semibold">100+</span><span class="text-[9px] text-slate-500">countries</span></div>
+            <div class="bg-white/5 p-3 rounded-2xl"><span class="block text-lg font-semibold">3+</span><span class="text-[9px] text-slate-500">years</span></div>
+          </div>
+          <a href="https://t.me/MR_ARMAN_08" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600/20 border border-indigo-500/30 rounded-2xl text-sm font-medium">contact <i data-lucide="send" class="w-4 h-4"></i></a>
+        </div>
+        <!-- right: tech tags (flexyy) -->
+        <div>
+          <div class="glass-card p-6 rounded-3xl border border-white/5">
+            <div class="grid grid-cols-2 gap-4">
+              <div><h4 class="text-[10px] font-bold uppercase tracking-widest text-indigo-300 mb-2">core</h4><div class="flex flex-wrap gap-1"><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">Python 3.11</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">AsyncIO</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">Pyrogram</span></div></div>
+              <div><h4 class="text-[10px] font-bold uppercase tracking-widest text-indigo-300 mb-2">db</h4><div class="flex flex-wrap gap-1"><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">MongoDB</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">Redis</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">PostgreSQL</span></div></div>
+              <div><h4 class="text-[10px] font-bold uppercase tracking-widest text-indigo-300 mb-2">media</h4><div class="flex flex-wrap gap-1"><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">FFmpeg</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">PyTgCalls</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">yt-dlp</span></div></div>
+              <div><h4 class="text-[10px] font-bold uppercase tracking-widest text-indigo-300 mb-2">infra</h4><div class="flex flex-wrap gap-1"><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">Docker</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">K8s</span><span class="bg-white/5 px-2 py-1 text-[10px] rounded-full">Nginx</span></div></div>
+            </div>
+            <!-- achievements mini -->
+            <div class="mt-8 border-t border-white/5 pt-6">
+              <div class="grid grid-cols-3 gap-3 text-center">
+                <div><span class="block font-semibold">500k+</span><span class="text-[9px] text-slate-400">songs played</span></div>
+                <div><span class="block font-semibold">100TB+</span><span class="text-[9px] text-slate-400">hosted</span></div>
+                <div><span class="block font-semibold">99.9%</span><span class="text-[9px] text-slate-400">uptime SLA</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA (flexyy tone) -->
+    <section id="contact" class="glass-card p-8 rounded-[2rem] border border-white/5 text-center">
+      <h2 class="text-2xl font-semibold">launch with TeamDev</h2>
+      <p class="text-slate-400 text-sm mt-2 max-w-md mx-auto">try any bot or order a custom solution</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-7">
+        <a href="https://t.me/TeamDevMusicBot" target="_blank" class="w-full sm:w-auto btn-flexyy px-8 py-3 rounded-2xl border border-white/10 font-medium flex items-center justify-center gap-2"><i data-lucide="headphones" class="w-4 h-4"></i> Music bot</a>
+        <a href="https://t.me/FileToLinkV3_Bot" target="_blank" class="w-full sm:w-auto glass-card px-8 py-3 rounded-2xl border border-white/5 font-medium flex items-center justify-center gap-2"><i data-lucide="file" class="w-4 h-4"></i> File bot</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (flexyy) -->
+  <footer class="max-w-6xl mx-auto px-4 py-10 mt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-5 text-sm text-slate-500">
+    <div class="flex items-center gap-2">
+      <i data-lucide="zap" class="w-4 h-4 text-indigo-400"></i>
+      <span class="font-medium text-white/80">TeamDev</span>
+      <span class="text-xs text-slate-600">@TEAM_X_OG</span>
+    </div>
+    <div class="flex gap-4 text-xs">
+      <span class="text-indigo-400/70">#flexyy</span>
+      <span class="text-indigo-400/70">#secure</span>
+      <span class="text-indigo-400/70">#scalable</span>
+    </div>
+    <div class="flex gap-3">
+      <a href="https://t.me/TEAM_X_OG" target="_blank" class="w-8 h-8 glass-card rounded-xl flex items-center justify-center border border-white/5"><i data-lucide="send" class="w-4 h-4"></i></a>
+      <a href="https://t.me/MR_ARMAN_08" target="_blank" class="w-8 h-8 glass-card rounded-xl flex items-center justify-center border border-white/5"><i data-lucide="mail" class="w-4 h-4"></i></a>
+    </div>
+  </footer>
+
+  <!-- initialize lucide -->
+  <script>
+    lucide.createIcons();
+    // simple copy feedback
+    document.querySelectorAll('code').forEach(el => {
+      el.addEventListener('click', async (e) => {
+        const text = el.innerText.trim();
+        await navigator.clipboard?.writeText(text);
+        el.style.backgroundColor = '#2f3a5a';
+        setTimeout(() => el.style.backgroundColor = '', 200);
+      });
+    });
+  </script>
 </body>
 </html>
