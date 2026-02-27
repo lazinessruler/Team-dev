@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>TeamDev | Advanced Telegram Systems</title>
+  <title>TeamDev | Advanced Infrastructure Protocol</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -12,168 +12,176 @@
 
   <style>
     :root { --brand: #3b82f6; --bg: #000000; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #fff; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #f8fafc; -webkit-font-smoothing: antialiased; }
     
-    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-    .text-gradient { background: linear-gradient(135deg, #fff 40%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Perfect minimalism approach */
+    .glass { background: rgba(12, 12, 12, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .mono { font-family: 'JetBrains Mono', monospace; }
     
-    body, html { overflow-x: hidden; width: 100%; }
+    .section-label { color: #64748b; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 13px; color: #94a3b8; margin-bottom: 0.75rem; }
+    .feature-list li::before { content: "•"; color: #334155; }
 
-    .grain::before {
-      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: url('https://grainy-gradients.vercel.app/noise.svg');
-      opacity: 0.05; pointer-events: none; z-index: 50;
-    }
+    .nav-link { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; transition: color 0.3s; }
+    .nav-link:hover { color: #fff; }
 
-    .service-card { transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
-    .service-card:hover { border-color: var(--brand); transform: translateY(-5px); background: rgba(59, 130, 246, 0.02); }
+    .btn-pro { background: #fff; color: #000; font-size: 11px; font-weight: 800; padding: 12px 24px; border-radius: 8px; transition: all 0.3s ease; letter-spacing: 0.1em; text-transform: uppercase;}
+    .btn-pro:active { transform: scale(0.97); }
 
-    .pulse { animation: pulse-animation 2s infinite; }
-    @keyframes pulse-animation { 0% { box-shadow: 0 0 0 0px rgba(59, 130, 246, 0.4); } 100% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); } }
+    .bot-card { border: 1px solid #1a1a1a; transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1); }
+    .bot-card:hover { border-color: #333; transform: translateY(-3px); }
 
     ::-webkit-scrollbar { width: 0px; }
   </style>
 </head>
-<body class="grain">
+<body class="overflow-x-hidden">
 
-  <nav class="fixed top-0 w-full z-[100] px-4 py-4 flex justify-center">
-    <div class="w-full max-w-5xl glass rounded-2xl px-6 py-3 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <div class="w-7 h-7 bg-blue-600 rounded-md flex items-center justify-center font-black text-sm">T</div>
-        <span class="font-bold tracking-tight text-sm">TeamDev</span>
+  <nav class="fixed top-0 w-full z-[100] px-6 py-4 bg-black/50 backdrop-blur-lg border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 bg-blue-600 flex items-center justify-center font-black text-xs rounded-sm">T</div>
+        <span class="font-extrabold tracking-tighter text-sm uppercase">TeamDev</span>
       </div>
-      <div class="hidden md:flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-        <a href="#bots" class="hover:text-blue-500 transition">Our Bots</a>
-        <a href="#about" class="hover:text-blue-500 transition">Developer</a>
-        <a href="https://t.me/TEAM_X_OG" class="hover:text-blue-500 transition">Channel</a>
+      <div class="hidden md:flex gap-10">
+        <a href="#intro" class="nav-link">Infrastructure</a>
+        <a href="#about" class="nav-link">Architect</a>
+        <a href="https://t.me/TEAM_X_OG" class="nav-link">Network</a>
       </div>
-      <a href="https://t.me/MR_ARMAN_08" class="text-[10px] font-bold bg-white text-black px-4 py-2 rounded-lg transition-all">CONNECT</a>
     </div>
   </nav>
 
-  <section class="relative pt-32 pb-20 px-6 text-center">
-    <div data-aos="fade-up" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-[10px] font-black uppercase tracking-tighter mb-8">
-      <span class="w-1.5 h-1.5 bg-blue-500 rounded-full pulse"></span>
-      3 Premium Bots Active
-    </div>
-    
-    <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl md:text-7xl font-extrabold tracking-tighter mb-6">
-      Built for Scale & <br>
-      <span class="text-gradient">Performance.</span>
-    </h1>
-    
-    <p data-aos="fade-up" data-aos-delay="200" class="text-gray-500 text-sm md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-      Professional Telegram bot development studio specializing in high-performance streaming, file management, and complex economy systems.
-    </p>
-
-    <div data-aos="fade-up" data-aos-delay="300" class="flex flex-wrap justify-center gap-6 mb-12">
-      <div class="text-center">
-        <div class="text-xl font-bold">50K+</div>
-        <div class="text-[9px] text-gray-600 font-bold uppercase">Users</div>
-      </div>
-      <div class="text-center">
-        <div class="text-xl font-bold">99.9%</div>
-        <div class="text-[9px] text-gray-600 font-bold uppercase">Uptime</div>
-      </div>
-      <div class="text-center">
-        <div class="text-xl font-bold">24/7</div>
-        <div class="text-[9px] text-gray-600 font-bold uppercase">Reliability</div>
+  <section id="intro" class="pt-52 pb-32 px-6 max-w-7xl mx-auto border-b border-white/5">
+    <div class="max-w-4xl" data-aos="fade-up" data-aos-duration="800">
+      <span class="section-label">01 // Protocol</span>
+      <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-white">
+        High-scale <br>Automation.
+      </h1>
+      <p class="text-slate-400 text-lg md:text-2xl leading-relaxed mb-16 mt-12 max-w-2xl font-medium">
+        Developing distributed systems for the Telegram landscape. Specialized in music, cloud bridging, and virtual economics.
+      </p>
+      <div class="flex gap-10 items-center">
+        <div class="flex gap-12">
+          <div><p class="text-2xl font-black">50k+</p><p class="text-[9px] text-slate-600 font-bold uppercase tracking-widest">Global Nodes</p></div>
+          <div><p class="text-2xl font-black">99.9%</p><p class="text-[9px] text-slate-600 font-bold uppercase tracking-widest">Uptime Metric</p></div>
+        </div>
+        <a href="#bots" class="btn-pro">View Systems</a>
       </div>
     </div>
   </section>
 
-  <section id="bots" class="py-10 px-6 max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <section id="bots" class="py-24 px-6 max-w-7xl mx-auto border-b border-white/5">
+    <span class="section-label">02 // Deployment</span>
+    <h2 class="text-4xl font-extrabold mb-16 tracking-tighter">Core Applications</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       
-      <div data-aos="fade-up" class="glass p-8 rounded-[2rem] service-card group relative overflow-hidden">
-        <div class="flex justify-between items-start mb-6">
-          <div class="w-12 h-12 bg-blue-600/20 rounded-2xl flex items-center justify-center text-blue-500">
-            <i data-lucide="music"></i>
+      <div data-aos="fade-up" data-aos-delay="100" class="bot-card bg-white/[0.01] p-10 rounded-2xl flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-start mb-10">
+            <i data-lucide="music-2" class="text-blue-500 w-8 h-8"></i>
+            <span class="mono text-[10px] text-slate-700 font-bold">MODE: AUDIO</span>
           </div>
-          <span class="text-[9px] font-black bg-blue-600 px-2 py-1 rounded text-white uppercase">Featured</span>
+          <h3 class="text-2xl font-extrabold mb-4 tracking-tight">TeamDev Music</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-10">Voice chat streaming engine optimized for cross-region latency management.</p>
         </div>
-        <h3 class="text-xl font-bold mb-3">TeamDev Music</h3>
-        <p class="text-gray-500 text-xs leading-relaxed mb-6">Voice chat music bot with HD streaming, playlists, and real-time controls. Supports YouTube & Spotify.</p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">VOICE CHAT</span>
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">QUEUE</span>
-        </div>
-        <a href="https://t.me/TeamDevMusicBot" class="text-xs font-bold text-blue-500 flex items-center gap-2 group-hover:gap-4 transition-all">TRY BOT <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="https://t.me/TeamDevMusicBot" class="text-[10px] font-bold text-blue-500 uppercase tracking-widest hover:gap-4 flex items-center gap-2 transition-all">LAUNCH <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="100" class="glass p-8 rounded-[2rem] service-card group">
-        <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center text-purple-500 mb-6">
-          <i data-lucide="folder-key"></i>
+      <div data-aos="fade-up" data-aos-delay="200" class="bot-card bg-white/[0.01] p-10 rounded-2xl flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-start mb-10">
+            <i data-lucide="server" class="text-purple-500 w-8 h-8"></i>
+            <span class="mono text-[10px] text-slate-700 font-bold">MODE: CLOUD</span>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-4 tracking-tight">FileToLink V3</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-10">Instant transformation of binary Telegram data into high-velocity CDN links.</p>
         </div>
-        <h3 class="text-xl font-bold mb-3">FileToLink V3</h3>
-        <p class="text-gray-500 text-xs leading-relaxed mb-6">Instant file hosting with streaming and download links. Lightning-fast CDN delivery for any file size.</p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">INSTANT LINK</span>
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">CDN</span>
-        </div>
-        <a href="https://t.me/FileToLinkV3_Bot" class="text-xs font-bold text-purple-500 flex items-center gap-2 group-hover:gap-4 transition-all">TRY BOT <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="https://t.me/FileToLinkV3_Bot" class="text-[10px] font-bold text-purple-500 uppercase tracking-widest hover:gap-4 flex items-center gap-2 transition-all">LAUNCH <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="200" class="glass p-8 rounded-[2rem] service-card group">
-        <div class="w-12 h-12 bg-emerald-600/20 rounded-2xl flex items-center justify-center text-emerald-500 mb-6">
-          <i data-lucide="zap"></i>
+      <div data-aos="fade-up" data-aos-delay="300" class="bot-card bg-white/[0.01] p-10 rounded-2xl flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-start mb-10">
+            <i data-lucide="activity" class="text-emerald-500 w-8 h-8"></i>
+            <span class="mono text-[10px] text-slate-700 font-bold">MODE: ECONOMY</span>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-4 tracking-tight">CrimeZone RPG</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-10">Distributed state management for RPG economies and transaction logic.</p>
         </div>
-        <h3 class="text-xl font-bold mb-3">CrimeZone RPG</h3>
-        <p class="text-gray-500 text-xs leading-relaxed mb-6">Large-scale economy and RPG system with crimes, businesses, and competitive leaderboards.</p>
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">ECONOMY</span>
-          <span class="px-2 py-1 bg-white/5 rounded text-[8px] font-bold text-gray-400">TRADING</span>
+        <a href="https://t.me/CrimeZone2_Bot" class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest hover:gap-4 flex items-center gap-2 transition-all">LAUNCH <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="400" class="bot-card bg-white/[0.01] p-10 rounded-2xl flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-start mb-10">
+            <i data-lucide="cpu" class="text-amber-500 w-8 h-8"></i>
+            <span class="mono text-[10px] text-slate-700 font-bold">MODE: HOST</span>
+          </div>
+          <h3 class="text-2xl font-extrabold mb-4 tracking-tight">Deployment Hub</h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-10">Lifecycle management for bot infrastructure within the TeamDev network.</p>
         </div>
-        <a href="https://t.me/CrimeZone2_Bot" class="text-xs font-bold text-emerald-500 flex items-center gap-2 group-hover:gap-4 transition-all">TRY BOT <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="https://t.me/TEAMDEV_HOSTBOT" class="text-[10px] font-bold text-amber-500 uppercase tracking-widest hover:gap-4 flex items-center gap-2 transition-all">LAUNCH <i data-lucide="chevron-right" class="w-3 h-3"></i></a>
       </div>
 
     </div>
   </section>
 
-  <section id="about" class="py-20 px-6 max-w-4xl mx-auto">
-    <div class="glass p-6 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-      <div class="relative group" data-aos="zoom-in">
-        <div class="absolute inset-0 bg-blue-600 blur-2xl opacity-20 group-hover:opacity-40 transition"></div>
-        <img src="https://i.postimg.cc/mkXY1WBg/IMG_20260228_032107_695.jpg" class="w-32 h-32 md:w-40 md:h-40 rounded-[2rem] object-cover relative z-10 border border-white/10">
+  <section id="developer" class="py-28 px-6 max-w-6xl mx-auto">
+    <div class="border border-white/5 rounded-[2rem] p-12 md:p-16 overflow-hidden relative bg-[#010101]">
+      <div class="absolute top-0 right-0 p-10 opacity-[0.02] pointer-events-none">
+        <i data-lucide="binary" class="w-96 h-96"></i>
       </div>
-      <div class="flex-1">
-        <span class="text-[10px] font-black uppercase tracking-widest text-blue-500 mb-2 block">Lead Systems Architect</span>
-        <h2 class="text-3xl font-bold mb-4 italic">@MR_ARMAN_08</h2>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-          Expert in Telegram's internal architecture. Specializing in high-concurrency Python environments and distributed systems.
-        </p>
-        <div class="flex flex-wrap justify-center md:justify-start gap-2">
-          <span class="px-3 py-1 bg-white/5 rounded-lg text-[9px] font-bold border border-white/5 uppercase">Python</span>
-          <span class="px-3 py-1 bg-white/5 rounded-lg text-[9px] font-bold border border-white/5 uppercase">Redis</span>
-          <span class="px-3 py-1 bg-white/5 rounded-lg text-[9px] font-bold border border-white/5 uppercase">Docker</span>
+      
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="zoom-in" data-aos-duration="600" class="relative group">
+          <div class="absolute inset-0 bg-blue-600 blur-3xl rounded-full opacity-10"></div>
+          <img src="https://i.postimg.cc/mkXY1WBg/IMG_20260228_032107_695.jpg" class="w-full grayscale filter contrast-110 rounded-2xl relative z-10 border border-white/5 shadow-xl">
+        </div>
+        
+        <div data-aos="fade-left" data-aos-duration="700">
+          <span class="section-label">03 // Architect</span>
+          <h2 class="text-4xl font-black mb-8 tracking-tighter text-white">Arman Khan</h2>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 text-sm">
+            <div><p class="text-slate-600 text-[9px] font-black uppercase tracking-widest mb-1">Function</p><p class="font-bold">Lead Developer</p></div>
+            <div><p class="text-slate-600 text-[9px] font-black uppercase tracking-widest mb-1">Direct</p><a href="https://t.me/MR_ARMAN_08" class="font-bold text-blue-500">@MR_ARMAN_08</a></div>
+            <div class="sm:col-span-2 pt-4 border-t border-white/5 flex gap-2">
+                <span class="text-[10px] font-bold mono">Python v3.11</span>
+                <span class="text-slate-800">•</span>
+                <span class="text-[10px] font-bold mono">PostgreSQL</span>
+                <span class="text-slate-800">•</span>
+                <span class="text-[10px] font-bold mono">Redis</span>
+            </div>
+          </div>
+          <p class="text-slate-600 text-xs leading-relaxed italic">Technical operations lead within the TEAM_X_OG ecosystem.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 px-6 border-t border-gray-900">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+  <footer class="py-20 px-6 border-t border-white/5 bg-black">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16">
       <div class="text-center md:text-left">
-        <div class="flex items-center gap-2 mb-2 justify-center md:justify-start">
-          <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center font-bold text-[10px]">T</div>
-          <span class="font-bold text-sm">TeamDev</span>
+        <div class="flex items-center gap-2 mb-3 justify-center md:justify-start">
+          <div class="w-6 h-6 bg-blue-600 flex items-center justify-center font-black text-xs rounded-sm">T</div>
+          <span class="font-extrabold tracking-tighter text-xs uppercase">TeamDev</span>
         </div>
-        <p class="text-gray-600 text-[9px] font-bold tracking-widest uppercase">© 2026 @TEAM_X_OG</p>
+        <p class="text-[9px] font-black text-slate-700 uppercase tracking-[0.4em]">Systems Protocol © 2026</p>
       </div>
 
-      <a href="https://t.me/flexyy" class="flex items-center gap-3 bg-white/[0.02] border border-white/5 px-4 py-2 rounded-2xl hover:bg-white/[0.05] transition-all group">
+      <a href="https://t.me/flexyy" class="flex items-center gap-4 bg-white/[0.01] border border-white/5 px-4 py-2.5 rounded-xl group hover:opacity-70 transition duration-300">
         <div class="text-right">
-          <p class="text-[8px] text-gray-600 font-bold uppercase tracking-tight">Coded By</p>
-          <p class="text-xs font-black text-gray-400 group-hover:text-blue-500 transition">Flexyy</p>
+            <p class="text-[8px] text-slate-700 font-bold uppercase tracking-widest mb-1">UI Concept</p>
+            <p class="text-xs font-black text-slate-400 group-hover:text-blue-500 transition-colors uppercase tracking-tighter">Flexyy</p>
         </div>
-        <img src="https://i.postimg.cc/PJ3WvnTx/5f1080a10e7b5c816034afd7fc03ddf0.jpg" class="w-9 h-9 rounded-lg grayscale group-hover:grayscale-0 transition-all border border-white/10">
+        <img src="https://i.postimg.cc/PJ3WvnTx/5f1080a10e7b5c816034afd7fc03ddf0.jpg" class="w-9 h-9 grayscale rounded-lg border border-white/5 group-hover:grayscale-0 transition-all duration-300">
       </a>
     </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
     lucide.createIcons();
   </script>
 </body>
